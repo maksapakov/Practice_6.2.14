@@ -18,12 +18,8 @@ public class Main {
     public static Map<String, Long> getSalesMap(Reader reader) {
         Map<String, Long> map = new HashMap<>();
         Scanner scanner = new Scanner(reader);
-        try {
-            while (scanner.hasNextLine()) {
-                map.merge(scanner.next(), scanner.nextLong(), Long::sum);
-            }
-        } catch (NoSuchElementException ex) {
-
+        while (scanner.hasNext()) {
+            map.merge(scanner.next(), scanner.nextLong(), Long::sum);
         }
         return map;
     }
